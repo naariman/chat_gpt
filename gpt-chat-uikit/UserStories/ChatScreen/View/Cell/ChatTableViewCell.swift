@@ -43,7 +43,6 @@ final class ChatTableViewCell: UITableViewCell {
         messageLabel.text = model.content
         messageLabel.textColor = model.messageSender == .user ? .white : .black
 
-        // Обновите ограничения в зависимости от отправителя
         if model.messageSender == .user {
             bubbleView.backgroundColor = .systemBlue
             lead.isActive = false

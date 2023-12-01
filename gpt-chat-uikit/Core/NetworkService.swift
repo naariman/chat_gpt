@@ -13,10 +13,10 @@ final class NetworkService {
     
     func sendMessage(message: String, completion: @escaping CompletionHandler) {
         let body = OpenAICompletionBody(
-            model: "gpt-3.5-turbo-instruct", // gpt-3.5-turbo-instruct
+            model: "gpt-3.5-turbo",
             prompt: message,
             temperature: 0.5,
-            max_tokens: 20
+            max_tokens: 50
         )
         
         let headers: HTTPHeaders = [
@@ -33,7 +33,6 @@ final class NetworkService {
             switch response.result {
             case .success(let result):
                 completion(.success(result))
-                print(result.choices[0].text)
             case .failure(let error):
                 completion(.failure(error))
             }

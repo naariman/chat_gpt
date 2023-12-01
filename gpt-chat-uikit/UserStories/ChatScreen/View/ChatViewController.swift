@@ -40,8 +40,6 @@ class ChatViewController: UIViewController {
         return textField
     }()
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -125,11 +123,6 @@ extension ChatViewController: UITableViewDataSource {
         
         return cell
     }
-    
-
 }
 
-extension ChatViewController: UITableViewDelegate {
-
-}
-
+extension ChatViewController: UITableViewDelegate {}
