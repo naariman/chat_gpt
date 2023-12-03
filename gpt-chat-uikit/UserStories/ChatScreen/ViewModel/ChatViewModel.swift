@@ -22,14 +22,14 @@ final class ChatViewModel {
             switch result {
             case .success(let model):
                 let model = ChatMessage(
-                    id: UUID().uuidString,
-                    content: model.choices[0].text.replacingOccurrences(of: "\n\n", with: ""),
+                    id: "10",
+                    content: model.choices[0].message.content.replacingOccurrences(of: "\n\n", with: ""),
                     dateCreated: Date(),
                     messageSender: .gpt
                 )
                 self.chatMessages.append(model)
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
             
         }

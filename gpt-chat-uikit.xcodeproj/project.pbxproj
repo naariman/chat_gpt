@@ -98,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				9ED417722B13D0CD0022E048 /* ChatViewModel.swift */,
-				9E5863F12B19279C00FB3914 /* ChatMessage.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -107,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				9ED417742B13D24C0022E048 /* OpenAIModels.swift */,
+				9E5863F12B19279C00FB3914 /* ChatMessage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

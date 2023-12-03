@@ -7,20 +7,22 @@
 
 import Foundation
 
-public struct OpenAICompletionBody: Codable {
+struct OpenAICompletionBody: Codable {
     let model: String
-    let prompt: String
-    let temperature: Double
-    let max_tokens: Double
+    let messages: [Message]
 }
 
-public struct OpenAICompletionResponse: Codable {
-    let id: String
-    let choices: [OpenAICompletionChoice]
+struct Message: Codable {
+    let role: String
+    let content: String
 }
 
-public struct OpenAICompletionChoice: Codable {
-    let text: String
+struct OpenAICompletionResponse: Codable {
+    let choices: [Choice]
+}
+
+struct Choice: Codable {
+    let message: Message
 }
 
 

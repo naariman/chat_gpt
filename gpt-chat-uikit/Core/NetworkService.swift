@@ -12,11 +12,9 @@ final class NetworkService {
     typealias CompletionHandler = (Result<OpenAICompletionResponse, Error>) -> Void
     
     func sendMessage(message: String, completion: @escaping CompletionHandler) {
-        let body = OpenAICompletionBody(
+        let body = OpenAICompletionBody.init(
             model: "gpt-3.5-turbo",
-            prompt: message,
-            temperature: 0.5,
-            max_tokens: 50
+            messages: [Message(role: "user", content: message)]
         )
         
         let headers: HTTPHeaders = [
