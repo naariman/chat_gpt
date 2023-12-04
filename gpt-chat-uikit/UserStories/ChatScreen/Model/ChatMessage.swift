@@ -6,16 +6,18 @@
 //
 
 import Foundation
+import MessageKit
 
-struct ChatMessage {
-    let id: String
-    let content: String
-    let dateCreated: Date
-    let messageSender: MessageSender
+struct MessageModel: MessageType {
+    var sender: SenderType
+    var messageId: String
+    var sentDate: Date
+    var kind: MessageKit.MessageKind
+    var image: UIImage?
 }
 
-enum MessageSender {
-    case user
-    case gpt
+struct SenderModel: SenderType {
+    var senderId: String
+    var displayName: String
 }
 

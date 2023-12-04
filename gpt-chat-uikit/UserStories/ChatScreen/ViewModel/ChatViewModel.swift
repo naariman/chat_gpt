@@ -6,14 +6,19 @@
 //
 
 import Foundation
+import MessageKit
 
 final class ChatViewModel {
     private let networkService: NetworkService = .init()
-    var chatMessages: [ChatMessage] = [] {
+    var chatMessages: [MessageType] = [] {
         didSet {
             self.onDataUpdate?()
         }
     }
+    let sender = SenderModel(
+        senderId: "chatGPT",
+        displayName: "ChatGPT"
+    )
     
     var onDataUpdate: (() -> Void)?
     
@@ -21,11 +26,11 @@ final class ChatViewModel {
         networkService.sendMessage(message: message) { result in
             switch result {
             case .success(let model):
-                let model = ChatMessage(
-                    id: "10",
-                    content: model.choices[0].message.content.replacingOccurrences(of: "\n\n", with: ""),
-                    dateCreated: Date(),
-                    messageSender: .gpt
+                let model = MessageModel(
+                    sender: self.sender,
+                    messageId: UUID().uuidString,
+                    sentDate: Date(),
+                    kind: .text(model.choices[0].message.content.replacingOccurrences(of: "\n\n", with: ""))
                 )
                 self.chatMessages.append(model)
             case .failure(let error):

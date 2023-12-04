@@ -8,12 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9E5863E72B19113C00FB3914 /* Contsants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5863E62B19113C00FB3914 /* Contsants.swift */; };
-		9E5863EE2B191D7100FB3914 /* StyledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5863ED2B191D7100FB3914 /* StyledTextField.swift */; };
-		9E5863F02B1926F900FB3914 /* ChatCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5863EF2B1926F900FB3914 /* ChatCollectionViewFlowLayout.swift */; };
 		9E5863F22B19279C00FB3914 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5863F12B19279C00FB3914 /* ChatMessage.swift */; };
-		9E5863F72B19BDF000FB3914 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5863F62B19BDF000FB3914 /* ChatTableViewCell.swift */; };
-		9E5863F92B19F48700FB3914 /* SendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5863F82B19F48700FB3914 /* SendButton.swift */; };
-		9E5863FC2B1A2E9100FB3914 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5863FB2B1A2E9100FB3914 /* String + Extension.swift */; };
 		9ED417732B13D0CD0022E048 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED417722B13D0CD0022E048 /* ChatViewModel.swift */; };
 		9ED417752B13D24C0022E048 /* OpenAIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED417742B13D24C0022E048 /* OpenAIModels.swift */; };
 		9ED417782B13D31B0022E048 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED417772B13D31B0022E048 /* NetworkService.swift */; };
@@ -29,12 +24,7 @@
 		627DC5F7EF951F007C2D8BBA /* Pods-gpt-chat-uikit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gpt-chat-uikit.release.xcconfig"; path = "Target Support Files/Pods-gpt-chat-uikit/Pods-gpt-chat-uikit.release.xcconfig"; sourceTree = "<group>"; };
 		86A0E7BAFB45AA4B94DD39E8 /* Pods_gpt_chat_uikit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gpt_chat_uikit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E5863E62B19113C00FB3914 /* Contsants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contsants.swift; sourceTree = "<group>"; };
-		9E5863ED2B191D7100FB3914 /* StyledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledTextField.swift; sourceTree = "<group>"; };
-		9E5863EF2B1926F900FB3914 /* ChatCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		9E5863F12B19279C00FB3914 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
-		9E5863F62B19BDF000FB3914 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
-		9E5863F82B19F48700FB3914 /* SendButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendButton.swift; sourceTree = "<group>"; };
-		9E5863FB2B1A2E9100FB3914 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		9ED417722B13D0CD0022E048 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		9ED417742B13D24C0022E048 /* OpenAIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIModels.swift; sourceTree = "<group>"; };
 		9ED417772B13D31B0022E048 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -63,6 +53,7 @@
 		9E5863E42B19111E00FB3914 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				9ED417772B13D31B0022E048 /* NetworkService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -114,9 +105,6 @@
 		9E5863EC2B191D4B00FB3914 /* Reusable UI */ = {
 			isa = PBXGroup;
 			children = (
-				9E5863ED2B191D7100FB3914 /* StyledTextField.swift */,
-				9E5863EF2B1926F900FB3914 /* ChatCollectionViewFlowLayout.swift */,
-				9E5863F82B19F48700FB3914 /* SendButton.swift */,
 			);
 			path = "Reusable UI";
 			sourceTree = "<group>";
@@ -124,7 +112,6 @@
 		9E5863F52B19BDCC00FB3914 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				9E5863F62B19BDF000FB3914 /* ChatTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -132,7 +119,6 @@
 		9E5863FA2B1A2E7E00FB3914 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9E5863FB2B1A2E9100FB3914 /* String + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -171,7 +157,6 @@
 				9E5863EC2B191D4B00FB3914 /* Reusable UI */,
 				9E5863E52B19112400FB3914 /* Constants */,
 				9E5863E42B19111E00FB3914 /* Service */,
-				9ED417772B13D31B0022E048 /* NetworkService.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -337,17 +322,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ED417752B13D24C0022E048 /* OpenAIModels.swift in Sources */,
-				9E5863F72B19BDF000FB3914 /* ChatTableViewCell.swift in Sources */,
 				9EEF795E2B0E8C9C002B281B /* ChatViewController.swift in Sources */,
 				9EEF795A2B0E8C9C002B281B /* AppDelegate.swift in Sources */,
 				9E5863F22B19279C00FB3914 /* ChatMessage.swift in Sources */,
 				9ED417732B13D0CD0022E048 /* ChatViewModel.swift in Sources */,
 				9ED417782B13D31B0022E048 /* NetworkService.swift in Sources */,
 				9EEF795C2B0E8C9C002B281B /* SceneDelegate.swift in Sources */,
-				9E5863EE2B191D7100FB3914 /* StyledTextField.swift in Sources */,
-				9E5863F92B19F48700FB3914 /* SendButton.swift in Sources */,
-				9E5863FC2B1A2E9100FB3914 /* String + Extension.swift in Sources */,
-				9E5863F02B1926F900FB3914 /* ChatCollectionViewFlowLayout.swift in Sources */,
 				9E5863E72B19113C00FB3914 /* Contsants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

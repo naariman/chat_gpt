@@ -9,5 +9,6 @@ target 'gpt-chat-uikit' do
 
   pod 'Alamofire'
   pod 'SnapKit'
+  pod 'MessageKit'
 
 end
