@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct Constants {  
+struct Constants {
     static let baseUrl = "https://api.openai.com/v1/chat/"
 }
+            

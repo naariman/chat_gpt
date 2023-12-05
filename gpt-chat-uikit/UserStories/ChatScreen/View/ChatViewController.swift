@@ -55,7 +55,9 @@ private extension ChatViewController {
             sender: userSender,
             messageId: UUID().uuidString,
             sentDate: Date(),
-            kind: .text(messageInputBar.inputTextView.text)
+            kind: .text(messageInputBar.inputTextView.text.replacingOccurrences(of: "\n", with: "")
+                .trimmingCharacters(in: .whitespaces)
+            )
         )
         viewModel.chatMessages.append(model)
         viewModel.sendMessageToGPT(message: messageInputBar.inputTextView.text)
@@ -92,6 +94,9 @@ extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, Messag
         if message.sender.senderId == "chatGPT" {
             avatarView.image = UIImage(named: "chatGPT")
             avatarView.adjustsFontSizeToFitWidth = true
+            avatarView.backgroundColor = .white
+        } else {
+            avatarView.image = UIImage(systemName: "figure.surfing")
             avatarView.backgroundColor = .white
         }
     }

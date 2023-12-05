@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         let viewController = ChatViewController()
-        viewController.title = "ChatGPT-5"
+        viewController.title = "ChatGPT-3.5"
         window?.rootViewController = UINavigationController(rootViewController: viewController)
         window?.makeKeyAndVisible()
     }
