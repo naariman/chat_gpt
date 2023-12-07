@@ -11,15 +11,19 @@ import Alamofire
 final class NetworkService {
     typealias CompletionHandler = (Result<OpenAICompletionResponse, Error>) -> Void
     
-    func sendMessage(message: String, completion: @escaping CompletionHandler) {
-        let body = OpenAICompletionBody.init(
-            model: "gpt-3.5-turbo",
-            messages: [Message(role: "user", content: message)]
-        )
+    func sendMessage(
+        messages: [Message],
+        completion: @escaping CompletionHandler
+    ) {
         
         let headers: HTTPHeaders = [
             "Authorization": "Bearer \(Constants.apiKey)"
         ]
+        
+        let body = OpenAICompletionBody(
+            model: "gpt-3.5-turbo",
+            messages: messages
+        )
         
         AF.request(
             Constants.baseUrl + "completions",

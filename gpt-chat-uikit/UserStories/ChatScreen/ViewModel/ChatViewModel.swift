@@ -10,11 +10,18 @@ import MessageKit
 
 final class ChatViewModel {
     private let networkService: NetworkService = .init()
-    var chatMessages: [MessageType] = [] {
+    var UIchatMessages: [MessageType] = [] {
         didSet {
             self.onDataUpdate?()
         }
     }
+    
+    var chatMessages: [Message] = [] {
+        didSet {
+            self.onDataUpdate?()
+        }
+    }
+    
     let sender = SenderModel(
         senderId: "chatGPT",
         displayName: "ChatGPT"
@@ -22,17 +29,23 @@ final class ChatViewModel {
     
     var onDataUpdate: (() -> Void)?
     
-    func sendMessageToGPT(message: String) {
-        networkService.sendMessage(message: message) { result in
+    func sendMessageToGPT(message: [Message]) {
+        networkService.sendMessage(messages: message) { result in
             switch result {
             case .success(let model):
-                let model = MessageModel(
+                let newModel = model.choices.last?.message
+                self.chatMessages.append(
+                    newModel ?? .init(role: "user", content: "bye")
+                )
+                
+                let modelForUI = MessageModel(
                     sender: self.sender,
                     messageId: UUID().uuidString,
                     sentDate: Date(),
-                    kind: .text(model.choices[0].message.content.replacingOccurrences(of: "\n\n", with: ""))
+                    kind: .text(model.choices.last?.message.content ?? "")
                 )
-                self.chatMessages.append(model)
+                self.UIchatMessages.append(modelForUI)
+
             case .failure(let error):
                 print(error.localizedDescription)
             }

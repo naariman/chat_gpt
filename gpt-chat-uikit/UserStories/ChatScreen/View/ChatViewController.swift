@@ -51,18 +51,23 @@ class ChatViewController: MessagesViewController {
 private extension ChatViewController {
     @objc
     func sendButtonTapped() {
-        let model = MessageModel(
+        let model = Message(
+            role: "user",
+            content: messageInputBar.inputTextView.text
+        )
+        viewModel.chatMessages.append(model)
+        viewModel.sendMessageToGPT(message: viewModel.chatMessages)
+        
+        let modelForUI = MessageModel(
             sender: userSender,
             messageId: UUID().uuidString,
             sentDate: Date(),
-            kind: .text(messageInputBar.inputTextView.text.replacingOccurrences(of: "\n", with: "")
-                .trimmingCharacters(in: .whitespaces)
-            )
+            kind: .text(messageInputBar.inputTextView.text)
         )
-        viewModel.chatMessages.append(model)
-        viewModel.sendMessageToGPT(message: messageInputBar.inputTextView.text)
-        messageInputBar.inputTextView.text = ""
+        
+        viewModel.UIchatMessages.append(modelForUI)
         messagesCollectionView.reloadData()
+        messageInputBar.inputTextView.text = ""
     }
     
  }
@@ -76,13 +81,13 @@ extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, Messag
         at indexPath: IndexPath,
         in messagesCollectionView: MessageKit.MessagesCollectionView
     ) -> MessageKit.MessageType {
-        viewModel.chatMessages[indexPath.section]
+        viewModel.UIchatMessages[indexPath.section]
     }
     
     func numberOfSections(
         in messagesCollectionView: MessageKit.MessagesCollectionView
     ) -> Int {
-        viewModel.chatMessages.count
+        viewModel.UIchatMessages.count
     }
     
     func configureAvatarView(
@@ -96,7 +101,7 @@ extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, Messag
             avatarView.adjustsFontSizeToFitWidth = true
             avatarView.backgroundColor = .white
         } else {
-            avatarView.image = UIImage(systemName: "figure.surfing")
+            avatarView.image = UIImage(systemName: "person.fill")
             avatarView.backgroundColor = .white
         }
     }
